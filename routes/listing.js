@@ -9,8 +9,6 @@ const listingControler = require("../controllers/listing.js")
 const multer  = require('multer')
 const {storage}= require("../cloudConfig.js")
 const upload = multer({storage })
-
-
 const validateListing = (req, res, next) => {
   let { error } = listingSchema.validate(req.body);
   if (error) {

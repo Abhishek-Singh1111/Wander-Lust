@@ -18,6 +18,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const session = require("express-session");
 const flash = require("connect-flash");
+
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
@@ -103,22 +104,6 @@ async function main() {
   await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
 }
  
-// home route
-//  app.get("/", (req, res) => {
-//     res.send("home");
-//   });
-//   app.get("/signup",async (req,res)=>{
-//   let fackUser = new User({
-//      email:"student1",
-//      username:"delta_Student"
-//   });
-//  let registerUser =await User.register(fackUser,'password');
-//  res.send(registerUser);
-//   })
-  
-
-  
-
 // index route for listings
 app.get("/listings", async (req, res) => {
   const listings = await Listing.find({});
@@ -196,7 +181,20 @@ app.delete("/listings/:id/reviews/:reviewId",wrapAsync(async(req,res)=>{
 // app.all("*",(req,res,next)=>{
 //   next(new ExpressError(404,"Page not found"));
 // })
-
+app.get("/Search", async (req, res) => {
+  const { title } = req.query; // Use query parameter
+  let listings;
+  if (title) {
+    listings = await Listing.findOne({ title }).populate("reviews");
+    if (!listings) {
+      req.flash("error", "Listing not found!");
+      return res.redirect("/listings");
+    }
+    return res.render("listings/show", { listing: listings });
+  }
+  listings = await Listing.find({});
+  res.render("listings/index", { listings });
+});
 
 
 // middleware for handling errors

@@ -1,4 +1,4 @@
-const { number, required } = require('joi');
+const {number, required } = require('joi');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Schema = mongoose.Schema;
@@ -10,7 +10,7 @@ const userSchema = new Schema({
         required:true
     },
     passport:{
-
+       
     }
 })
 userSchema.plugin(passportLocalMongoose);

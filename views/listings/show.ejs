@@ -8,7 +8,9 @@
   <img src="<%=listing.image.url%>" class="card-img-top show-img">
   <div class="card-body">
     <p class="card-text">
-        
+        <h5 class="card-title">
+  Owned by <%= listing.owner && listing.owner.username ? listing.owner.username : "Unknown" %>
+</h5>
         <br>     
         <%= listing.description %>
         <br>
@@ -22,7 +24,7 @@
     </p>
   </div>
 </div>
-  <%if(currentUser && currentUser._id.equals(listing.owner._id)) {%>
+ <% if (currentUser && listing.owner && currentUser._id && listing.owner._id && currentUser._id.equals(listing.owner._id)) { %>
 
  
        <div class="btns" >
@@ -68,7 +70,7 @@
             <button class="btn btn-dark">submit</button>
         </form>
     <%}%>
-      
+        
         <hr>
         <p><b>All Reviews</b></p>
         <div class="row">
