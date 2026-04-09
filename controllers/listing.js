@@ -38,12 +38,10 @@ module.exports.updateRoute = async (req, res) => {
 
 let {id} = req.params;
 let listing  = await Listing.findByIdAndUpdate(id,{...req.body.listing})
-let url  = req.file.path;
-let filename = req.file.filename;
  if (req.file) {
     listing.image = {
-      url:url,
-      filename: filename
+      url: req.file.path,
+      filename: req.file.filename
     };
   } 
   await listing.save();

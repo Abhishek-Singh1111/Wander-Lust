@@ -28,8 +28,13 @@ router.route("/")
 
 router.route("/:id")
 .get(listingControler.renderShowPage)
-.get(listingControler.renderShowPage)
-.put(isLoggedIn,isOwner,upload.single('listing[image]'),validateListing)
+.put(
+  isLoggedIn,
+  isOwner,
+  upload.single('listing[image]'),
+  validateListing,
+  listingControler.updateRoute
+)
 .delete(isLoggedIn,isOwner,listingControler.deleteRoute);
 
 
