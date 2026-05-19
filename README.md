@@ -140,7 +140,7 @@ CLOUD_API_SECRET=your_cloudinary_api_secret
 ### Development Mode
 
 ```bash
-npm start
+node app.js or nodemon app.js
 ```
 
 Server will start on:
@@ -153,15 +153,8 @@ http://localhost:8080
 
 ## 📸 Screenshots
 
-> Add screenshots of your homepage, listing page, login page, and property details here.
+<img width="1846" height="952" alt="Screenshot 2026-05-20 002238" src="https://github.com/user-attachments/assets/88811fc2-a297-4361-9828-980f64d42407" />
 
-Example:
-
-```md
-![Homepage](screenshots/homepage.png)
-```
-
----
 
 ## 🧠 Learning Outcomes
 
@@ -174,18 +167,6 @@ Through this project, I improved my understanding of:
 * Database modeling with MongoDB
 * Backend routing & middleware
 * Responsive web design
-
----
-
-## 🔮 Future Improvements
-
-* Add booking functionality
-* Payment gateway integration
-* Wishlist feature
-* User reviews & ratings
-* Search & filter system
-* Google Maps integration
-* Admin dashboard
 
 ---
 
