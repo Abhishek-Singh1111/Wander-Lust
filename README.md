@@ -71,7 +71,7 @@ This project was built to strengthen full-stack development skills using the **M
 ### Tools & Utilities
 
 * Git & GitHub
-* Cloudinary (if used)
+* Cloudinary 
 * Method Override
 * Connect Flash
 
