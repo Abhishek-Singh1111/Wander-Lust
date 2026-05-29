@@ -120,10 +120,10 @@ app.get("/Search", async (req, res) => {
 
 app.use((err,req,res,next)=>{
   let {statusCode=500,message="Something went wrong"} = err;
-  res.status(statusCode).send(message);
+  res.status(statusCode).render("StatusError", { statusCode, message });
 });
 app.use((req, res, next) => {
-  res.status(404).send("Page Not Found");
+  res.status(404).render("StatusError", { statusCode: 404, message: "Page Not Found" });
 });
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`); 

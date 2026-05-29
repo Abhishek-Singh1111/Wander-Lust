@@ -84,11 +84,13 @@
   
   
   </p>
-    <form class="mb-3"method="POST"action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
+    <% if (currentUser && review.author && currentUser._id && review.author._id && currentUser._id.equals(review.author._id)) { %>
+            <form class="mb-3"method="POST"action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
         <button class="btn btn-dark btn-sm">
             DELETE
         </button>
     </form>
+   <% }%>
   </div>
 </div>          
         <%}%>
