@@ -48,7 +48,8 @@ body{
 	padding: 0.55rem 0.9rem;
 	display: inline-flex;
 	gap: 0.5rem;
-	align-items: center;
+}
+
 	justify-content: center;
 }
 .app-search-btn i{
